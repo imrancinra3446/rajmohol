@@ -4,7 +4,7 @@ import dateFormat from 'dateformat';
 const LoadComments = props => {
     return (
         props.comments.map(comment => {
-            return(
+            return (
                 <div key={comment.id}>
                     <h6>{comment.author}</h6>
                     {/* <h4>{comment.rating}</h4> */}
