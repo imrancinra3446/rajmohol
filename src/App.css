@@ -1,3 +1,22 @@
 .App {
     text-align: center;
 }
+
+a {
+    cursor: pointer;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 60px;
+    transform: rotate(45deg);
+}
+
+.footer {
+    background-color: aliceblue;
+    padding-top: 10px;
+    position: fixed;
+    bottom: 0;
+    margin-top: 0px auto;
+    width: 100%;
+}

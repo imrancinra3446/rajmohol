@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink, NavbarToggler, Collapse } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Navbar, NavbarBrand, Nav, NavItem, NavbarToggler, Collapse } from "reactstrap";
+import { NavLink } from 'react-router-dom';
 
 class Navigation extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            isNavOpen:false
+            isNavOpen: false
         }
     }
-    navToggle=()=>{
+    navToggle = () => {
         this.setState({
-            isNavOpen:!this.state.isNavOpen
+            isNavOpen: !this.state.isNavOpen
         })
     }
 
@@ -23,24 +23,24 @@ class Navigation extends Component {
                 <Navbar dark color="dark" expand="sm">
                     <div className="container">
 
-                        <NavbarToggler onClick={this.navToggle}/>
+                        <NavbarToggler onClick={this.navToggle} />
 
                         <NavbarBrand href="/">RajmohoL Restaurant</NavbarBrand>
 
                         <Collapse navbar isOpen={this.state.isNavOpen}>
-                            
+
                             <Nav className="mr-auto" navbar>
                                 <NavItem >
-                                    <Link to="/" className="nav-link active">Home</Link>
+                                    <NavLink to="/" className="nav-link">Home</NavLink>
                                 </NavItem>
                                 <NavItem >
-                                    <Link to="/menu" className="nav-link">Menu</Link>
+                                    <NavLink to="/menu" className="nav-link">Menu</NavLink>
                                 </NavItem>
                                 <NavItem >
-                                    <Link to="/about" className="nav-link">About</Link>
+                                    <NavLink to="/about" className="nav-link">About</NavLink>
                                 </NavItem>
                                 <NavItem >
-                                    <Link to="/contact" className="nav-link">Contact</Link>
+                                    <NavLink to="/contact" className="nav-link">Contact</NavLink>
                                 </NavItem>
 
                             </Nav>
@@ -53,3 +53,7 @@ class Navigation extends Component {
     };
 }
 export default Navigation;
+
+
+// -=---=-=-=-=-=-=-=-
+

@@ -12,6 +12,7 @@ const MenuItem = (props) => {
                         <CardTitle style={{cursor:"pointer"}} onClick={props.DishSelect}>{props.dish.name}</CardTitle>
                     </CardImgOverlay>
                 </CardBody>
+                
             </Card>
         </div>
     );
