@@ -59,7 +59,7 @@ handleSubmit = event =>{
                                     <FormGroup row>
                                         <Label htmlFor='telNum' md={2}>Telephone</Label>
                                         <Col md={10}>
-                                            <Input type='number' name='telNum' placeholder='Telephone' value={this.state.telNum} id='telNum' onChange={this.handleInputChange}/>
+                                            <Input type='tel' name='telNum' placeholder='Telephone' value={this.state.telNum} id='telNum' onChange={this.handleInputChange}/>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup row>
@@ -103,6 +103,6 @@ handleSubmit = event =>{
             </div>
         );
     };
-}
+};
 
 export default Contact;

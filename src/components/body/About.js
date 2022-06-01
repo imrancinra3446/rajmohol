@@ -1,6 +1,9 @@
 import React from 'react';
 
+
+
 const About = () => {
+
     document.title = "Rajmohol || About"
     return (
         <div>

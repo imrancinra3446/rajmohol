@@ -1,15 +1,37 @@
 import React, { Component } from 'react';
-import DISHES from '../../data/dishes';
-import COMMENTS from '../../data/comments';
+// import DISHES from '../../data/dishes';
+// import COMMENTS from '../../data/comments';
 import MenuItem from './MenuItem';
 import DishDetail from './DishDetail';
 import { CardColumns, Modal, Button, ModalBody, ModalFooter } from 'reactstrap';
+import {connect} from 'react-redux';
+import * as actionTypes from '../../redux/actionTypes';
+
+const mapStateToProps = state =>{
+    return{
+        dishes: state.dishes,
+        comments: state.comments,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return{
+        addComment: (dishId, author, rating, comment)=> dispatch({
+            type: actionTypes.ADD_COMMENT,
+            payload: {
+                dishId: dishId,
+                author: author,
+                rating: rating,
+                comment: comment
+            }
+        })
+    }
+}
 
 class Menu extends Component {
     state = {
         
-        dishes: DISHES,
-        comments:COMMENTS,
+        
         selectedDish: null,
         modalOpen: false
     }
@@ -30,7 +52,7 @@ class Menu extends Component {
 
     render() {
         document.title = "Rajmohol || Menu"
-        const menu = this.state.dishes.map(item => {
+        const menu = this.props.dishes.map(item => {
             return (
                 <div key={item.id}>
                     <MenuItem
@@ -44,8 +66,12 @@ class Menu extends Component {
 
         let dishDetail = null;
         if (this.state.selectedDish != null) {
-            const comments = this.state.comments.filter(comment =>  comment.dishId === this.state.selectedDish.id)
-            dishDetail = <DishDetail dish={this.state.selectedDish} comments = {comments}/>
+            const comments = this.props.comments.filter(comment =>  comment.dishId === this.state.selectedDish.id)
+            dishDetail = <DishDetail 
+            dish={this.state.selectedDish} 
+            comments = {comments}
+            addComment = {this.props.addComment}
+            />
         }
 
         return (
@@ -68,4 +94,4 @@ class Menu extends Component {
         );
     }
 }
-export default Menu;
+export default connect(mapStateToProps, mapDispatchToProps) (Menu); 
